@@ -197,15 +197,6 @@ var summation = function(num) {
 }
 
 // 移除一组数组里面最小的元素, 同时如果有相同的最小元素, 只要移除索引最小的那个即可
-var removeSmallest = function(array) {
-    var result = array.slice(0)
-    if (array.length != 0) {
-        var smallest = findSmallest(result)
-        var smallestFirstIndex = result.indexOf(smallest)
-        result.splice(smallestFirstIndex, 1)
-    }
-    return result
-}
 
 var findSmallest = function(array) {
     var smallest = array[0]
@@ -217,6 +208,17 @@ var findSmallest = function(array) {
     }
     return smallest
 }
+
+var removeSmallest = function(array) {
+    var result = array.slice(0)
+    if (array.length != 0) {
+        var smallest = findSmallest(result)
+        var smallestFirstIndex = result.indexOf(smallest)
+        result.splice(smallestFirstIndex, 1)
+    }
+    return result
+}
+
 // removeSmallest([1,2,3,4,5]) = [2,3,4,5]
 // removeSmallest([5,3,2,1,4]) = [5,3,2,4]
 // removeSmallest([2,2,1,2,1]) = [2,2,2,1]
@@ -232,7 +234,6 @@ var getMax = function(array) {
     }
     return result
 }
-
 
 var getMin = function(array) {
     var result = array[0]
@@ -258,7 +259,11 @@ var highAndLow = function(numbers) {
     return result.join(' ')
 }
 
-// console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
+console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
+
+// 要求
+// 给定一个 初始数组 和长度 n, 根据初始数组的长度 l 从新的一个元素开始每个元素都为前面 l 个元素的和
+// 最后返回数组, 一共是 n 个元素, 包括初始数组里面的元素
 
 // 先写一个辅助函数来算出所给的 array 里面的后 n 个元素的和
 var previousSum = function(arr, n) {
@@ -287,10 +292,13 @@ var tribonacci = function(initial, n) {
     return resultArray
 }
 
-// console.log(tribonacci([1,1,1],10))
+// console.log(tribonacci([1,1,1,1],10)) // [1, 1, 1, 3, 5, 9, 17, 31, 57, 105]
 
 
-// 根据字符串里面的数字来进行排序
+// 根据字符串里面的数字来进行排序, 从小到大
+
+
+// 辅助函数, 查找字符串里面的数字
 var findNumber = function(string) {
     var numbers = '0123456789'
     for (var i = 0; i < string.length; i++) {
