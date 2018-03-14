@@ -38,6 +38,8 @@ var expandedForm = function(num) {
 | VISA       | 4                    | 13 or 16      |
  */
 
+
+// 这题做的不好, 虽然做出来了, 但是代码巨长.....
 var Issuer = function(card, number, length) {
     this.card = card
     this.number = number
@@ -82,7 +84,6 @@ var array_diff = function(a, b) {
             result.push(checkE)
         }
     }
-    console.log(result);
     return result
 }
 
@@ -102,3 +103,123 @@ var accum = function(s) {
 // accum("abcd");    // "A-Bb-Ccc-Dddd"
 // accum("RqaEzty"); // "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 // accum("cwAt");    // "C-Ww-Aaa-Tttt"
+
+
+// 写一个辅助函数来生成全是大写字母, 或者全是小写字母的字符串
+
+
+// 找到字符串里面的大写字母索引
+var capitals = function(s) {
+    var result = []
+    // var upperLetter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    var upperLetter = generateUpperLetters()()
+    for (var i = 0; i < s.length; i++) {
+        var letter = s[i]
+        if (upperLetter.includes(letter)) {
+            result.push(i)
+        }
+    }
+    return result
+}
+
+// capitals('CodEWaRs'), [0,3,4,6]
+
+// 验证密码
+/*
+1. 至少6个字母
+2. 包含一个小写字母
+3. 包含一个大写字母
+4. 包含一个数字
+5. 只能是英文字母, 数字
+ */
+function generateUpperLetters() {
+    var str = [];
+    for(var i = 65; i < 91; i++){
+     str.push(String.fromCharCode(i));
+    }
+    return str.join('')
+}
+
+function generateLowerLetters() {
+    var str = [];
+    for(var i = 97; i < 123; i++){
+     str.push(String.fromCharCode(i));
+    }
+    return str.join('')
+}
+
+function generateNumbers() {
+    var str = ''
+    for (var i = 0; i < 10; i++) {
+        str += String(i)
+    }
+    return str
+}
+
+var validate = function(password) {
+    var normalCheck = true
+    var lowerLetters = generateLowerLetters()
+    var upperLetters = generateUpperLetters()
+    var numbers = generateNumbers()
+    var characters = lowerLetters + upperLetters + numbers
+
+    var lowerCheck = false
+    var upperCheck = false
+    var numCheck = false
+
+    var l = password.length
+    // check length first
+    if (l < 6) {
+        normalCheck = false
+    }
+    else {
+        for (var i = 0; i < password.length; i++) {
+            var letter = password[i]
+            if (!characters.includes(letter)) {
+                normalCheck = false
+                break
+            }
+            else {
+                if (lowerLetters.includes(letter)) {
+                    lowerCheck = true
+                    continue
+                }
+                if (upperLetters.includes(letter)) {
+                    upperCheck = true
+                    continue
+                }
+                if (numbers.includes(letter)) {
+                    numCheck = true
+                }
+            }
+        }
+    }
+    var specificCheck = lowerCheck && upperCheck && numCheck
+    var checkAll = specificCheck && normalCheck
+    return checkAll
+}
+
+// console.log(validate('Password123')); // true
+
+
+// 给定一个字符串, 如果这个字符串里面每个字母都至少出现一次, 那么就说明这个是一个合法的字符串
+
+var isPangram = function(str) {
+    var result = false
+    var string = str.toLowerCase()
+    var letters = generateLowerLetters()
+    var unRepeatLetters = string[0]
+    var totalLength = letters.length
+    for (var i = 1; i < string.length; i++) {
+        var letter = string[i]
+        // valid character and not be repeated in the 'unRepeatLetters'
+        var condition = letters.includes(letter) && (!unRepeatLetters.includes(letter))
+        if (condition) {
+            unRepeatLetters += letter
+        }
+    }
+    if (unRepeatLetters.length == totalLength) {
+        result = true
+    }
+    return result
+}
