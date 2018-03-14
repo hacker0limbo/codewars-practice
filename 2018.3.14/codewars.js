@@ -202,7 +202,7 @@ var validate = function(password) {
 // console.log(validate('Password123')); // true
 
 
-// 给定一个字符串, 如果这个字符串里面每个字母都至少出现一次, 那么就说明这个是一个合法的字符串
+// 给定一个字符串, 如果这个字符串里面每个字母都至少出现一次, 那么就说明这个是一个合法的字符串, 大小写不区分
 
 var isPangram = function(str) {
     var result = false
@@ -223,3 +223,79 @@ var isPangram = function(str) {
     }
     return result
 }
+
+// 给定一个字符串, 返回一个字符串, 满足一下条件
+/*
+1. 每个字母代表一个数字, 例如 a = 1, b = 2..
+2. 返回的字符串根据这个规则进行比较, 返回最大的那个
+3. 如果两个字符串有相同的得分, 返回最先出现的那个
+ */
+
+var strToScore = function(str) {
+    var result = 0
+    for (var i = 0; i < str.length; i++) {
+        var letter = str[i]
+        var letterScore = letter.charCodeAt() - 96
+        result += letterScore
+    }
+    return result
+}
+
+var high = function(str) {
+    var strArray = str.split(' ')
+    var result = strArray[0]
+    for (var i = 1; i < strArray.length; i++) {
+        var word = strArray[i]
+        var resultScore = strToScore(result)
+        var wordScore = strToScore(word)
+        if (wordScore > resultScore) {
+            result = word
+        }
+    }
+    return result
+}
+// console.log(high('man i need a taxi up to ubud')); // taxi
+// console.log(high('what time are we climbing up the volcano')) // volcano'
+
+
+/*
+------- ------- -------
+|     | | ABC | | DEF |
+|  1  | |  2  | |  3  |
+------- ------- -------
+------- ------- -------
+| GHI | | JKL | | MNO |
+|  4  | |  5  | |  6  |
+------- ------- -------
+------- ------- -------
+|PQRS | | TUV | | WXYZ|
+|  7  | |  8  | |  9  |
+------- ------- -------
+------- ------- -------
+|     | |space| |     |
+|  *  | |  0  | |  #  |
+------- ------- -------
+ */
+// 如上是一个简易手机图, 假设要输入 'LOL' 那么就需要按 9 次, 每个对应0~4(3), 返回一共需要按键的次数
+// 按照 P->Q->R->S->7
+// 按一次得到空格, 按两次得到0
+var presses = function(str) {
+    var str = str.toUpperCase()
+    var result = 0
+    var array = ['1', 'ABC2', 'DEF3', 'GHI4', 'JKL5', 'MNO6', 'PQRS7', 'TUV8', 'WXYZ9', '*', ' 0', '#']
+    for (var i = 0; i < str.length; i++) {
+        var letter = str[i]
+        for (var j = 0; j < array.length; j++) {
+            var word = array[j]
+            var isIncluded = word.includes(letter)
+            if (isIncluded) {
+                var index = word.indexOf(letter)
+                result += index + 1
+                break
+            }
+        }
+    }
+    return result
+}
+
+// console.log(presses("LOL")); // 9
