@@ -74,6 +74,7 @@ var DNAStrand = function(dna) {
 // console.log(DNAStrand('TTGG'));
 
 // 给定一个字符串, 将字符串里面的所有首字母大写
+// REVIEW: 构建一个方法的时候, 注意原型是 this
 // 这里注意, 给的是一个方法, 因此要将该方法应用于原始对象上, 原始对象为 this
 // 注意这个 this 是一个对象
 String.prototype.toJadenCase = function() {
@@ -90,7 +91,7 @@ String.prototype.toJadenCase = function() {
 // var str = "How can mirrors be real if our eyes aren't real";
 // console.log(str.toJadenCase());
 
-// 将一个字符串的首字母大写几种方法:
+// NOTE: 将一个字符串的首字母大写几种方法:
 /*
 1, 使用 s[0] + s.slice(1) 将首字母隔离以后再拼接
 2, 使用 s = s.replace(s[0], s[0].toUpperCase()) 直接替换
@@ -127,6 +128,7 @@ var XO = function(str) {
     return numberX === numberO
 }
 
+// REVIEW: 判断长度
 // 法二: 还有一种很优雅的方法, 直接使用 split() 判断长度
 var XO = function(str) {
     var l1 = str.toLowerCase().split('x').length
@@ -161,6 +163,7 @@ var squareDigits = function(num) {
     return Number(result)
 }
 
+// NOTE: 对字符串操作时, 可先用 split 转换为数组, 再用 join 合并成字符串
 // 法二, 直接对数组里面的每一个元素平方, 最后使用 join('')
 var squareDigits = function(num) {
     var result = ''
@@ -168,8 +171,9 @@ var squareDigits = function(num) {
     var arr = numberArray.map(function(n){
         return Math.pow(Number(n), 2)
     })
-    return arr.join('')
+    return Number(arr.join(''))
 }
+
 
 // 给定两个数字, 返回这两个数字之间(包括这两个数字)的所有和, 如果两个数字相同, 则返回其中一个数字
 // 注意其中 a, b 大小是随机的
@@ -190,19 +194,25 @@ var GetSum = function(a, b) {
     }
     return result
 }
-console.log(GetSum(1, 4));
+// console.log(GetSum(1, 4));
+
+// NOTE: replace() 函数没有返回值
+// NOTE: 删除一个字符串里面的一个字母可以这样
+/*
+var s = 'ssst'.replace('t', 'b')
+一定要用变量接住, 原来的字符串是不受影响的
+*/
+
 
 // 移除一个字符串里面的所有元音, 返回这个字符串
 var disemvowel = function(str) {
     var vowels = 'aeiouAEIOU'
-    var strArray = str.split(' ')
-    for (var i = 0; i < strArray.length; i++) {
-        var letter = strArray[i]
-        if (vowels.includes(letter)) {
-            console.log(letter);
-            strArray.splice(i, 1)
-            i--
+    var result = ''
+    for (var i = 0; i < str.length; i++) {
+        var letter = str[i]
+        if (!vowels.includes(letter)) {
+            result += letter
         }
     }
-    return strArray.join(' ')
+    return result
 }
