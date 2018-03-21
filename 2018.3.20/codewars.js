@@ -181,6 +181,3 @@ var persistence = function(num) {
     }
     return count
 }
-
-
-// 给定一个数组, 通过使用一个元素使两边可以一分为2, 左边结果等于右边结果
