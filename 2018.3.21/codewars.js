@@ -142,20 +142,24 @@ function list(names){
 
 
 // 给定一个包含括号的字符串, 如果每个括号可以匹配到返回 true, 否则返回 false
+// 只包含 (), 同时注意, 只有()才算 valid, )( 是不合格的
 var validParentheses = function(str) {
     var left = '('
     var right = ')'
-    var leftCount = 0
-    var rightCount = 0
+    var count = 0
     for (var i = 0; i < str.length; i++) {
-        if (str.includes(left)) {
-            leftCount++
+        var letter = str[i]
+        if (count < 0) {
+            return false
         }
-        if (str.includes(right)) {
-            rightCount++
+        if (letter.includes(left)) {
+            count++
+        }
+        if (letter.includes(right)) {
+            count--
         }
     }
-    return leftCount === rightCount
+    return count === 0
 }
 
-console.log(validParentheses("())"));
+// console.log(validParentheses(")(()))"));
