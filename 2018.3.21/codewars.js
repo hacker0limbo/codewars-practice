@@ -139,3 +139,23 @@ function list(names){
         }
     }, '');
 }
+
+
+// 给定一个包含括号的字符串, 如果每个括号可以匹配到返回 true, 否则返回 false
+var validParentheses = function(str) {
+    var left = '('
+    var right = ')'
+    var leftCount = 0
+    var rightCount = 0
+    for (var i = 0; i < str.length; i++) {
+        if (str.includes(left)) {
+            leftCount++
+        }
+        if (str.includes(right)) {
+            rightCount++
+        }
+    }
+    return leftCount === rightCount
+}
+
+console.log(validParentheses("())"));
