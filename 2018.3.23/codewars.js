@@ -31,9 +31,61 @@ var incrementString = function(str) {
     return result
 }
 
-
-// 写一个函数, 不断的进行调用可以将参数里面的数字累加
-var add = function(num) {
-    return 
-
+// 闭包
+function A() {
+    function B(){
+       console.log("Hello Closure!");
+    }
+    return B;
 }
+var C = A();
+console.log(C);
+// 执行 A 以后将 A 的返回值赋值给变量, 实际上 A 的返回值即为 B 这个函数体
+// 即此时 C 里面装的是 A 的函数体, 执行 C 就是执行 A
+C();//Hello Closure!
+
+
+function A() {
+    var count = 0;
+    function B(){
+       count ++;
+       console.log(count);
+    }
+    return B;
+}
+
+var C = A();
+C() // 1
+C() // 2
+
+
+function makeAdder(x) {
+    return function(y) {
+        return x + y;
+    };
+}
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+console.log(add5(2));  // 7
+console.log(add10(2)); // 12
+
+var x = function() {
+    console.log(1);
+}
+
+
+
+// 闭包应用: 写一个函数, 不断的调用可以连续获得和
+var add = function(n) {
+    var fn = function(x) {
+        return add(n + x)
+    }
+
+    fn.valueOf = function() {
+        return n
+    }
+    return fn
+}
+console.log(add(1)(2));
