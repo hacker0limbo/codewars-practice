@@ -193,7 +193,6 @@ var cakes = function(obj1, obj2) {
 // var available = {flour: 1200, sugar: 1200, eggs: 5, milk: 200};
 // console.log(cakes(recipe, available));
 
-
 // 给定一个字符串, 找到第一个不重复的字母
 var firstNonRepeatingLetter = function(str) {
     var result = ''
