@@ -193,17 +193,16 @@ var cakes = function(obj1, obj2) {
 // var available = {flour: 1200, sugar: 1200, eggs: 5, milk: 200};
 // console.log(cakes(recipe, available));
 
-// 给定一个字符串, 找到第一个不重复的字母
+
+// 给定一个字符串, 找到第一个不重复的字母, 不区分大小写
 var firstNonRepeatingLetter = function(str) {
-    var result = ''
-    var strArray = str.split('')
-    var set = new Set(strArray)
-    for (let letter of str) {
-        if (!set.has(letter)) {
-            result += letter
-            break
+    var s = str.toLowerCase()
+    for (var i = 0; i < s.length; i++) {
+        var letter = s[i]
+        if (s.indexOf(letter) == s.lastIndexOf(letter)) {
+            return str[i]
         }
     }
-    return result
+    return ''
 }
-console.log(firstNonRepeatingLetter('moonmen'));
+console.log(firstNonRepeatingLetter('zaazzZxXAaaP3er'));
