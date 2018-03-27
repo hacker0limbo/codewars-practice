@@ -288,3 +288,27 @@ var wave = function(str) {
 }
 // console.log(wave(" gap "));
 // console.log(wave('hello word'));
+
+
+// 给定一个字符串, 如果将字符串切成两半, 如果是奇数就保留中间的一位, 将两半互相交换位置
+var reverseByCenter = function(str) {
+    var l = str.length
+    if (l % 2 == 0) {
+        var lHalf = str.slice(0, l/2)
+        var rHalf = str.slice(l/2)
+        return rHalf + lHalf
+    }
+    else {
+        var lHalf = str.slice(0, (l-1)/2)
+        var rHalf = str.slice((l+1)/2)
+        return rHalf + str[(l-1)/2] + lHalf
+    }
+}
+// console.log(reverseByCenter('agent')); // 'nteag'
+
+
+// 实现 trim() 函数, 将两端的字符串消除
+// String.prototype.trim = function() {
+//     return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '')
+// };
+// console.log("foo    bar".trim());
