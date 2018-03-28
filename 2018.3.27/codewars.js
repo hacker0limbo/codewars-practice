@@ -202,7 +202,6 @@ var number9 = function(num) {
 }
 // console.log(number9(100));
 
-
 // 给定一个字符串, 将每个单词旋转以后返回, 单词之间的空格保留
 var reverseWord = function(s) {
     var sArr = s.split('')
@@ -312,3 +311,7 @@ var reverseByCenter = function(str) {
 //     return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '')
 // };
 // console.log("foo    bar".trim());
+//
+// var log = function() {
+//     console.log.apply(console, arguments);
+// }
