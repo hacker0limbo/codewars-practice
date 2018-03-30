@@ -3,9 +3,9 @@ this 的绑定与指向
 
 ## 重点
 
-1. 只有一个**对象**(函数也是对象)调用了包含`this`函数时，`this`才被赋值，并且所赋的值只依赖于调用了包含`this`函数的对象
+1. 只有一个**对象**调用了包含`this`函数时，`this`才被赋值，并且所赋的值只依赖于调用了包含`this`函数的对象
 2. 当`this`在一个函数内出现的时候，`this`指向**调用**这个函数的对象
-3. 每个函数的`this`都是在调用时被绑定的, 完全取决于函数(对象)的*调用位置*, 即函数(对象)的调用方法
+<!-- ~~3. 每个函数的`this`都是在调用时被绑定的, 完全取决于函数(对象)的*调用位置*, 即函数(对象)的调用方法~~ -->
 
 ## 调用栈和调用位置
 
@@ -81,7 +81,7 @@ obj.foo() //2
 
 ### 对象属性的引用链
 
-对象属性的引用链中只有最后一层会影响调用位置, eg.
+对象属性的引用链中只有**最后一层**会影响调用位置, eg.
 ```js
 function foo() {
     console.log(this.a);
@@ -97,3 +97,89 @@ var o1 = {
 o1.o2.foo() // 42
 ```
 o1调用了o2, 但是o2调用了`foo()`, 所以实际上 this 还是指向 o2
+
+### 隐式丢失
+通常发生在将 含有`this`的函数体赋值给另一个变量的时候, 即*参数传递*, 这种情况下, this 会丢失
+```js
+function foo() {
+    console.log(this.a);
+}
+var obj = {
+    a: 'inner a',
+    foo: foo,
+}
+// 这里的赋值只是将 foo 这个函数体赋值给了 bar, 实际并没有调用
+// var bar = obj.foo() 这个才是调用, 同时obj 也只是在引用 foo 的函数体
+var bar = obj.foo
+var a = 'global a'
+bar() // golbal a
+```
+这个例子的最后调用`bar()`=`foo()` 所以调用位置为全局
+
+回调函数里面的this的丢失:
+例子1:
+```js
+function foo() {
+    console.log(this.a);
+}
+function doFoo(fn) {
+    // fn 其实引用的是 foo
+    fn()
+}
+var obj = {
+    a: 'inner',
+    foo: foo,
+}
+var a = 'global'
+
+// 最后调用的时候实际上还是调用的 foo, obj 根本没有调用, 只是引用了
+doFoo(obj.foo) // 'global'
+```
+例子2, DOM 内置函数
+```js
+var o = new Object();
+o.f = function() {
+    console.log(this === o);
+}
+// jQuery 的写法
+$('#button').on('click', o.f);
+```
+这里的 this 是指向按钮的 DOM 对象, 而不是指向的 o
+
+## 显式绑定
+目的: 将调用函数的时候强制决定 this 的指向对象
+
+### call
+call 可以指定 this 的绑定的对象, 即函数调用位置
+```js
+var n = 'global'
+var o = {
+    n: 'inner',
+}
+function f() {
+    console.log(this.n);
+}
+
+f.call(o) // 'inner'
+f.call() // 'global'
+```
+#### 1. 硬绑定
+
+由于将函数赋值给一个变量以后传给一个回调函数会发生绑定丢失, 如下:
+```js
+function foo() {
+    console.log(this.a);
+}
+var o = {
+    a: 'inner',
+    foo: foo,
+}
+var a = 'global'
+setTimeout(o.foo, 100) // 'global'
+
+该setTimeout类似如下
+function setTimeout() {
+    // 等待delay 毫秒
+    fn() // 调用位置
+}
+```
