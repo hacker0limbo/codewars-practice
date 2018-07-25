@@ -25,7 +25,7 @@ def disemvowel(str):
 
 # 更简单的方法如下:
 def disemvowel(s):
-    return s.translate(None, "aeiouAEIOU")
+	return s.translate(None, "aeiouAEIOU")
 
 def disemvowel(str):
 	for i in "aeiouAEIOU":
