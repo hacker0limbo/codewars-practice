@@ -12,7 +12,8 @@ def getCount(str):
 
 """
 给定一个字符串, 删除里面所有的元音
-This website is for losers LOL! => Ths wbst s fr lsrs LL!
+This website is for losers LOL! => Ths wbst s fr lsrs LL! 
+注意标点保留
 """
 def disemvowel(str):
 	vowels = 'aeiou'
