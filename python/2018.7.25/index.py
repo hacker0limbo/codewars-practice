@@ -32,6 +32,7 @@ def disemvowel(str):
 		s = str.replace(i, '')
 	return s
 
+
 """
 给定一个字符串, 找出里面的中间项
 test => es
