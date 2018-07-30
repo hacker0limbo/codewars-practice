@@ -41,6 +41,21 @@ def is_isogram(str):
             return False
     return result
 
+# 更简单的方法是判断元素个数:
+def is_isogram(string):
+    string = string.lower()
+    for letter in string:
+        if string.count(letter) > 1:
+            return False
+    return True
+
+
+"""
+给定2个字符串, 将两个字符串先去重, 再连接, 最后排序
+"""
+def longest(a1, a2):
+    return "".join(sorted(set(a1 + a2)))
+
 
 if __name__ == '__main__':
     print(sum_two_smallest_numbers([19, 5, 42, 2, 77]))
