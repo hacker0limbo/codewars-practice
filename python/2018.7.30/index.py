@@ -60,6 +60,16 @@ def solution(s1: str, s2: str) -> bool:
 # 更简单的方法是用 s1.endswith(s2)
 
 
+"""
+给定一个数字, 用递归切出每个数字, 返回为一个列表
+150 => [1, 5, 0]
+"""
+def getdigits(n):
+    str_n = str(n)
+    if len(str_n) == 1:
+        return [n]
+    else:
+        return [int(str_n[0])] + getdigits(int(str_n[1:]))
 
 
 if __name__ == '__main__':
@@ -68,3 +78,4 @@ if __name__ == '__main__':
     print(remove_smallest([2, 2, 1, 2, 1]))
     print(palindrome_chain_length(87))
     print(solution('abc', 'bc'))
+    print(getdigits(12))
