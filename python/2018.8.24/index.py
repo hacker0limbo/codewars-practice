@@ -98,8 +98,74 @@ def scramble_(s1,s2):
     return True
 
 
+"""
+写一个类, 构造函数接受一个列表和一个数字, 分别代表内容和每页的内容的数量
+例子如下:
+
+helper = PaginationHelper(['a','b','c','d','e','f'], 4)
+helper.page_count # should == 2 第一页4个, 第二页2个
+helper.item_count # should == 6
+helper.page_item_count(0)  # should == 4
+helper.page_item_count(1) # last page - should == 2
+helper.page_item_count(2) # should == -1 since the page is invalid
+
+# page_ndex takes an item index and returns the page that it belongs on
+helper.page_index(5) # should == 1 (zero based index)
+helper.page_index(2) # should == 0
+helper.page_index(20) # should == -1
+helper.page_index(-10) # should == -1 because negative indexes are invalid
+"""
+import math
+
+class PaginationHelper:
+
+    # The constructor takes in an array of items and a integer indicating
+    # how many items fit within a single page
+    def __init__(self, collection: list, items_per_page: int):
+        self.collection = collection
+        self.items_per_page = items_per_page
+    
+    # returns the number of items within the entire collection
+    def item_count(self):
+        return len(self.collection)
+    
+    # returns the number of pages
+    def page_count(self):
+        return math.ceil(len(self.collection)/self.items_per_page)
+       
+    # returns the number of items on the current page. page_index is zero based
+    # this method should return -1 for page_index values that are out of range
+    def page_item_count(self, page_index: int):
+        result = -1
+        total_page = self.page_count()
+        total_items = self.item_count()
+        if page_index == total_page -1:
+            result = total_items - self.items_per_page*(total_page-1)
+        if page_index < total_page - 1:
+            result = self.items_per_page
+        return result
+    
+    # determines what page an item is on. Zero based indexes.
+    # this method should return -1 for item_index values that are out of range
+    def page_index(self, item_index: int):
+        result = -1
+        if 0 <= item_index < self.item_count():
+            result = math.floor(item_index/self.items_per_page)
+        return result
+
+
 if __name__ == '__main__':
     L = remove_smallest(2, [5, 3, 2, 1, 4])
     print(L)
     print(first_non_repeating_letter('moonmen'))
     print(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+    helper = PaginationHelper(['a','b','c','d','e','f'], 4)
+    print(helper.page_count())
+    print(helper.item_count())
+    print(helper.page_item_count(0))
+    print(helper.page_item_count(1))
+    print(helper.page_item_count(2))
+    print(helper.page_index(5))
+    print(helper.page_index(2))
+    print(helper.page_index(20))
+    print(helper.page_index(-10))
