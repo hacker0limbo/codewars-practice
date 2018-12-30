@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e8d8519-f0c5-4194-a420-de1075415197" name="默认" comment="">
-      <change afterPath="$PROJECT_DIR$/python/2018.12.29/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/2018.12.30/index.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,6 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/codewars_practice$index__4_.coverage" NAME="index (4) Coverage Results" MODIFIED="1546138383512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/2018.12.30" />
     <SUITE FILE_PATH="coverage/codewars_practice$index.coverage" NAME="index Coverage Results" MODIFIED="1532558348995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/2018.7.25" />
     <SUITE FILE_PATH="coverage/codewars_practice$index__1_.coverage" NAME="index (1) Coverage Results" MODIFIED="1532573538490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/2018.7.26" />
     <SUITE FILE_PATH="coverage/codewars_practice$index__3_.coverage" NAME="index (3) Coverage Results" MODIFIED="1546070252951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/python/2018.12.29" />
@@ -21,10 +21,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="index.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/python/2018.12.29/index.py">
+        <entry file="file://$PROJECT_DIR$/python/2018.12.30/index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+            <state relative-caret-position="437">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -56,6 +56,7 @@
         <option value="$PROJECT_DIR$/python/2018.7.26/index.py" />
         <option value="$PROJECT_DIR$/python/2018.7.29/index.py" />
         <option value="$PROJECT_DIR$/python/2018.12.29/index.py" />
+        <option value="$PROJECT_DIR$/python/2018.12.30/index.py" />
       </list>
     </option>
   </component>
@@ -75,8 +76,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="372" />
-    <option name="y" value="23" />
+    <option name="x" value="464" />
+    <option name="y" value="39" />
     <option name="width" value="946" />
     <option name="height" value="765" />
   </component>
@@ -85,7 +86,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,29 +96,19 @@
             <path>
               <item name="codewars-practice" type="b2602c69:ProjectViewProjectNode" />
               <item name="codewars-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="javascript" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="codewars-practice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="codewars-practice" type="462c0819:PsiDirectoryNode" />
-              <item name="javascript" type="462c0819:PsiDirectoryNode" />
-              <item name="2018.4.17" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="codewars-practice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="codewars-practice" type="462c0819:PsiDirectoryNode" />
               <item name="python" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="codewars-practice" type="b2602c69:ProjectViewProjectNode" />
               <item name="codewars-practice" type="462c0819:PsiDirectoryNode" />
               <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="2018.12.29" type="462c0819:PsiDirectoryNode" />
+              <item name="2018.12.30" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -157,7 +147,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.index (3)">
+  <component name="RunManager" selected="Python.index (4)">
     <configuration name="index (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="codewars-practice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -215,6 +205,25 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="index (4)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="codewars-practice" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/python/2018.12.30" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/python/2018.12.30/index.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="index" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="codewars-practice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -239,9 +248,11 @@
       <item itemvalue="Python.index (1)" />
       <item itemvalue="Python.index (2)" />
       <item itemvalue="Python.index (3)" />
+      <item itemvalue="Python.index (4)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.index (4)" />
         <item itemvalue="Python.index (3)" />
         <item itemvalue="Python.index (2)" />
         <item itemvalue="Python.index (1)" />
@@ -263,7 +274,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="372" y="23" width="946" height="765" extended-state="0" />
+    <frame x="464" y="39" width="946" height="765" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -272,10 +284,9 @@
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32868218" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.19069767" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32868218" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49884528" visible="true" weight="0.2710177" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49884528" weight="0.27654868" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" sideWeight="0.5011547" side_tool="true" weight="0.26067746" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -286,6 +297,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +315,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/python/2018.12.29/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/python/2018.7.29/index.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1311">
@@ -412,19 +431,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/2018.3.18/es6 循环整理.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1150">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-1150" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascript/2018.3.18/es6 循环整理.html">
@@ -440,7 +452,14 @@
     <entry file="file://$PROJECT_DIR$/python/2018.12.29/index.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/2018.12.30/index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
